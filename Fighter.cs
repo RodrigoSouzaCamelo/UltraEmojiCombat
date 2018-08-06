@@ -19,7 +19,7 @@ namespace UltraEmojiCombat
         public int Age { get => age; set => age = value; }
         public float Height { get => height; set => height = value; }
         public float Weight { get => weight; set => weight = value; }
-        private string Category
+        public string Category
         {
             get
             {

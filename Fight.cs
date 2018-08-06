@@ -13,5 +13,26 @@ namespace UltraEmojiCombat
         public Fighter Challenger { get => challenger; set => challenger = value; }
         public int Rounds { get => rounds; set => rounds = value; }
         public bool Approved { get => approved; set => approved = value; }
+
+        public void MarkFight(Fighter fighterOne, Fighter fighterTwo)
+        {
+            if (fighterOne.Category.Equals(fighterTwo.Category))
+            {
+                this.approved = true;
+                this.challenged = fighterOne;
+                this.challenger = fighterTwo;
+            }
+            else
+            {
+                this.approved = false;
+                this.challenged = null;
+                this.challenger = null;
+            }
+        }
+
+        public void ToFight()
+        {
+
+        }
     }
 }
