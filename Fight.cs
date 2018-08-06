@@ -32,7 +32,39 @@ namespace UltraEmojiCombat
 
         public void ToFight()
         {
+            if (this.approved)
+            {
+                Console.WriteLine("### Challenged ###");
+                this.challenged.Introduce();
+                Console.WriteLine("### Challenger ###");
+                this.challenger.Introduce();
 
+                Random random = new Random();
+                int winner = random.Next(0,3);
+                switch(winner){
+                    case 0:
+                        Console.WriteLine("Drew!");
+                        this.challenged.DrawFight();
+                        this.challenger.DrawFight();
+                    break;
+                    
+                    case 1:
+                        Console.WriteLine(this.challenged + "'s victory");
+                        this.challenged.WinFight();
+                        this.challenger.LoseFight();
+                    break;
+
+                    case 2:
+                        Console.WriteLine(this.challenger + "'s victory");
+                        this.challenged.LoseFight();
+                        this.challenger.WinFight();
+                    break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("The fight can't happen");
+            }
         }
     }
 }
